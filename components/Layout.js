@@ -1,7 +1,22 @@
-const Layout = () => {
+import Head from "next/head";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+
+const Layout = ({ children }) => {
     return ( 
-        <div>
-            <h1>Layout</h1>
+        <div className="layout">
+            <Head>
+                <title>ShopNext: World of Gaming</title>
+            </Head>
+            <header>
+                <Navbar />
+            </header>
+            <main className="main-container">
+                {children}
+            </main>
+            <footer>
+                <Footer />
+            </footer>
         </div>
      );
 }
