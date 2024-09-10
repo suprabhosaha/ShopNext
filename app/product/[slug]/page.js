@@ -26,7 +26,7 @@ const ProductDetails = ({ params: { slug } }) => {
         fetchProducts();
     }, [slug]);
 
-    console.log(product);
+    // console.log(product);
 
     return (
         <div>

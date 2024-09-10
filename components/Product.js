@@ -7,7 +7,6 @@ const Product = ({ product }) => {
 
     return ( 
         <div>
-            {console.log(product)}
             <Link href={`/product/${product.slug.current}`}>
             <div className="product-card">
                 <img src={imageUrl} alt="product-image" width={250} height={250} className="product-image" />
