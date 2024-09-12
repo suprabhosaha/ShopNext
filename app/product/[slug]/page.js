@@ -10,7 +10,13 @@ const ProductDetails = ({ params: { slug } }) => {
     const [product, setProduct] = useState(null);
     const [products, setProducts] = useState(null);
     const [index, setIndex] = useState(0);
-    const { increaseQty, decreaseQty, qty, onAdd } = useStateContext();
+    const { increaseQty, decreaseQty, qty, onAdd, setShowCart } = useStateContext();
+
+    const handleBuyNow = () => {
+        onAdd(product, qty);
+
+        setShowCart(true);
+    };
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -66,13 +72,13 @@ const ProductDetails = ({ params: { slug } }) => {
                         <h3>Quanity:</h3>
                         <p className="quantity-desc">
                             <span className="minus" onClick={decreaseQty}><AiOutlineMinus /></span>
-                            <span className="num" onClick="">{qty}</span>
+                            <span className="num">{qty}</span>
                             <span className="plus" onClick={increaseQty}><AiOutlinePlus /></span>
                         </p>
                     </div>
                     <div className="buttons">
                         <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
-                        <button type="button" className="buy-now" onClick="">Buy Now</button>
+                        <button type="button" className="buy-now" onClick={ handleBuyNow }>Buy Now</button>
                     </div>
                 </div>
             </div>
